@@ -15,6 +15,13 @@ const PORT = process.env.PORT || 3000;
 // Connect to MongoDB
 connectDB();
 
+// Temporary connection test
+const mongoose = require('mongoose');
+setTimeout(() => {
+  console.log('Mongoose state:', mongoose.connection.readyState);
+  console.log('MONGO_URI starts with:', process.env.MONGO_URI?.substring(0, 30));
+}, 5000);
+
 // Middleware
 app.use(cors());
 app.use(express.json());
